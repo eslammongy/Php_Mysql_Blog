@@ -33,6 +33,12 @@ body {
     text-decoration: none;
     border-radius: 5px;
     text-align: center;
+    transition: 0.5s ease-in-out;
+}
+
+#right-area ul li:hover {
+    transform: scale(0.9, 0.9);
+    background-color: var(--text-color);
 }
 
 #right-area ul li a {
@@ -46,4 +52,27 @@ body {
 
 #right-area #navbarNav li {
     background-color: #5c5b5b;
+}
+
+.add-new-category {
+    margin-top: 50px;
+}
+
+.add-new-category label {
+    margin-bottom: 5px;
+    color: white;
+}
+
+.add-new-category input {
+    background-color: var(--component-color);
+}
+
+.btn-custom {
+    width: 40%;
+    background-color: var(--text-color);
+    color: white;
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
 }
