@@ -171,3 +171,10 @@
             margin-right: 5px;
         }
         /* end last post */
+        
+        footer {
+            background-color: #3f3f3f;
+            padding: 10px;
+            border-top: 1px solid orangered;
+            text-align: center;
+        }
