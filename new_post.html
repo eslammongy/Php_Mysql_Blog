@@ -26,7 +26,7 @@
                     <h3>Control Panel</h3>
                     <ul>
                         <li>
-                            <a href="">
+                            <a href="control_panel.html">
                                 <span> <i class="fa-solid fa-tags"></i></span>
                                 <span>Category</span>
                             </a>
@@ -72,10 +72,32 @@
                     <div class="add-new-category">
                         <form action="">
                             <div class="form-group">
-                                <label for="category">New Category</label>
-                                <input type="text" name="category" class="form-control">
+                                <label for="post_title">Title</label>
+                                <input type="text" name="post_title" class="form-control" style="background-color: white;">
                             </div>
-                            <button class="btn-custom">Add</button>
+                            <div class="form-group">
+                                <label for="post_tag">Tag</label>
+                                <select name="post_tag" id="post_tag" class="form-control">
+                                    <option value="">Android</option>
+                                     <option value="">Flutter</option>
+                                      <option value="">Front End</option>
+                                       <option value="">Back End</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="post_image">
+                                   Post Image
+                                </label>
+                                <input type="file" id="post_image" class="form-control" style="background-color: white;">
+
+                            </div>
+                            <div class="form-group">
+                                <label for="post_content">Content</label>
+                                <textarea cols="30" rows="10" name="post_content" class="form-control">
+
+                                </textarea>
+                            </div>
+                            <button class="btn-custom">Share</button>
                         </form>
                     </div>
                 </div>
