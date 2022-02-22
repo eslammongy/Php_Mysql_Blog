@@ -1,6 +1,23 @@
 
 <?php
 include 'include/header.php';
+include 'include/DBConnection.php';
+
+$cateName = $_POST['category'];
+$addingCate = $_POST['btnAdd'];
+
+if(isset($addingCate)){
+    if(empty($cateName)){
+        echo "please fill this is field first";
+    }else if($cateName > 100){
+        echo "please enter name less than 100 latter";
+    }else{
+        $query = "INSERT INTO categories (CategoryName) VALUES ('$cateName')";
+        mysqli_query($dbConnect, $query);
+        echo "New Category Added Successfully";
+        $dbConnect->close();
+    }
+}
 ?>
  <!-- start dashboard content -->
     <div class="content">
@@ -54,12 +71,12 @@ include 'include/header.php';
                 </div>
                 <div class="col-md-10" id="main-area">
                     <div class="add-new-category">
-                        <form action="">
+                        <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
                             <div class="form-group">
                                 <label for="category">New Category</label>
                                 <input type="text" name="category" class="form-control">
                             </div>
-                            <button class="btn-custom">Add</button>
+                            <button name="btnAdd" class="btn-custom">Add</button>
                         </form>
                     </div>
                 </div>
