@@ -17,12 +17,17 @@ if (isset($addPost)) {
         echo "please don't forget type the post title and content";
     } else if ($postContent > 1000) {
         echo "big content !!";
-
     } else {
         $postImage = rand(0, 1000) . "_" . $imageName;
         move_uploaded_file($imageTmp, "uploadImage\postImage\\" . $postImage);
         $query = "INSERT INTO posts(PostTitle,PostContent,PostImage,PostTag,PostAuther)
-        VALUES('$postTitle'.'$postContent'.'$postImage'.'$postTag'.'$postAuther')";
+        VALUES('$postTitle','$postContent','$postImage','$postTag','$postAuther')";
+       $result =  mysqli_query($dbConnect, $query);
+       if(isset($result)){
+           echo "Sharing Post Successfully";
+       }else{
+           echo "Error Occurred When Uploading Post";
+       }
     }
 }
 
@@ -81,7 +86,7 @@ if (isset($addPost)) {
             </div>
             <div class="col-md-10" id="main-area">
                 <div class="add-new-category">
-                    <form action="">
+                    <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="PostTitle">Title</label>
                             <input type="text" name="PostTitle" class="form-control" style="background-color: white;">
@@ -89,7 +94,17 @@ if (isset($addPost)) {
                         <div class="form-group">
                             <label for="PostTag">Tag</label>
                             <select name="PostTag" id="PostTag" class="form-control">
-                                <option name="PostTag"></option>
+                                <?php
+
+                                $query = "SELECT * FROM categories";
+                                $result = mysqli_query($dbConnect, $query);
+
+                                while ($tag = mysqli_fetch_assoc($result)) {
+                                ?>
+                                <option name="PostTag"> <?php echo $tag['CategoryName']; ?></option>
+                                <?php
+                                }
+                                ?>
                             </select>
                         </div>
                         <div class="form-group">
