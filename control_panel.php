@@ -14,7 +14,7 @@ if (isset($addingCate)) {
         $query = "INSERT INTO categories (CategoryName) VALUES ('$cateName')";
         mysqli_query($dbConnect, $query);
         echo "New Category Added Successfully";
-        $dbConnect->close();
+        # $dbConnect->close();
     }
 }
 ?>
@@ -90,7 +90,7 @@ if (isset($addingCate)) {
                         </tr>
                         <?php
 $cateOrder = 0;
-$query = "SELECT * FROM categories ORDER BY ID DESC";
+$query = "SELECT * FROM categories ORDER BY CategoryName DESC";
 $result = mysqli_query($dbConnect, $query);
 while ($row = mysqli_fetch_assoc($result)) {
     $cateOrder++;
