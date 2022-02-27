@@ -1,6 +1,8 @@
 <?php 
 include 'include/header.php';
 include 'include/DBConnection.php';
+
+$postID = $_GET['PostID'];
 ?>
 
 <!-- start dashboard content -->
@@ -56,6 +58,19 @@ include 'include/DBConnection.php';
             </div>
             <!-- display posts list -->
             <div class="col-md-10" id="main-area">
+                <?php
+                 if (isset($postID)) {
+                        $query = "DELETE FROM posts WHERE PostID ='$postID'";
+                        $deleteRes = mysqli_query($dbConnect, $query);
+
+                        if (isset($deleteRes)) {
+                            echo "<div class='alert alert-success'style='color:black;font-weight:800;text-align:center;'>" . "Delete Selected Article Successfully" . "</div>";
+                        } else {
+                            echo "<div class='alert alert-danger'style='color:black;font-weight:800;text-align:center;'>" . "Error Occurred when Deleting Selected Article" . "</div>";
+                        }
+                    }
+
+                    ?>
                 <table class="table table-bordered" style="color: white;">
                     <tr style="background-color: #696969;">
                         <th>Post Date</th>
@@ -63,6 +78,7 @@ include 'include/DBConnection.php';
                         <th>Post Tag</th>
                         <th>Post Title</th>
                         <th>Post ID</th>
+                        <th>Delete Post</th>
                     </tr>
                     <?php 
                 $query = "SELECT * FROM posts ORDER BY PostDate DESC";
@@ -78,6 +94,8 @@ include 'include/DBConnection.php';
                         <th><?php echo $row['PostTag']; ?></th>
                         <th><?php echo $row['PostTitle']; ?></th>
                         <th><?php echo $row['PostID']; ?></th>
+                        <td><a href="posts_list.php?PostID=<?php echo $row['PostID']; ?>"><button class="btn-custom"
+                                    style="margin:0px;background-color:red;">Delete</button></a></td>
                     </tr>
 
 
