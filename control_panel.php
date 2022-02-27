@@ -89,6 +89,7 @@ $addingCate = $_POST['btnAdd'];
                             <th>Inserting Date</th>
                             <th>Category Name</th>
                             <th>Category ID</th>
+                            <th>Delete Category</th>
                         </tr>
                         <?php
                         $cateOrder = 0;
@@ -101,6 +102,8 @@ $addingCate = $_POST['btnAdd'];
                             <td><?php echo $row['CategoryDate']; ?></td>
                             <td><?php echo $row['CategoryName']; ?></td>
                             <td><?php echo $cateOrder; ?></td>
+                            <td><a href="control_panel.php?ID=<?php echo$row['ID']; ?>"><button class="btn-custom"
+                                        style="margin:0px;background-color:red;">Delete</button></a></td>
                         </tr>
                         <?php
                         }

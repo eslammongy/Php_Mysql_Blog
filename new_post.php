@@ -45,7 +45,7 @@ $imageTmp = $_FILES['PostImage']['tmp_name'];
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="posts_list.php">
                                 <span><i class="fa-solid fa-earth-americas"></i></span>
                                 <span>All</span>
                             </a>

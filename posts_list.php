@@ -65,7 +65,7 @@ include 'include/DBConnection.php';
                         <th>Post ID</th>
                     </tr>
                     <?php 
-                $query = "SELECT * FROM posts ORDER BY DESC";
+                $query = "SELECT * FROM posts ORDER BY PostDate DESC";
                 $result =mysqli_query($dbConnect, $query);
                
                 while($row = mysqli_fetch_assoc($result)){
@@ -73,7 +73,8 @@ include 'include/DBConnection.php';
 
                     <tr>
                         <th><?php echo $row['PostDate']; ?></th>
-                        <th><?php echo $row['PostImage']; ?></th>
+                        <th><img src="uploadImage/postImage/<?php echo $row['PostImage']; ?>" alt="" width="60px"
+                                height="60px"></th>
                         <th><?php echo $row['PostTag']; ?></th>
                         <th><?php echo $row['PostTitle']; ?></th>
                         <th><?php echo $row['PostID']; ?></th>
@@ -85,7 +86,6 @@ include 'include/DBConnection.php';
                 ?>
                 </table>
             </div>
-
         </div>
     </div>
 </div>
