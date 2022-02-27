@@ -4,6 +4,7 @@ include 'include/DBConnection.php';
 
 $cateName = $_POST['category'];
 $addingCate = $_POST['btnAdd'];
+$tagID = $_GET['ID'];
 
 ?>
 <!-- start dashboard content -->
@@ -84,6 +85,19 @@ $addingCate = $_POST['btnAdd'];
 
                 <!-- display categories -->
                 <div class="display-cat mt-5">
+                    <?php
+                    if (isset($tagID)) {
+                        $query = "DELETE FROM categories WHERE ID ='$tagID'";
+                        $deleteRes = mysqli_query($dbConnect, $query);
+
+                        if (isset($deleteRes)) {
+                            echo "<div class='alert alert-success'style='color:black;font-weight:800;text-align:center;'>" . "Delete Selected Tag Successfully" . "</div>";
+                        } else {
+                            echo "<div class='alert alert-danger'style='color:black;font-weight:800;text-align:center;'>" . "Error Occurred when Deleting Selected Tag" . "</div>";
+                        }
+                    }
+
+                    ?>
                     <table class="table table-bordered" style="color: white;">
                         <tr style="background-color: #696969;">
                             <th>Inserting Date</th>
@@ -102,7 +116,7 @@ $addingCate = $_POST['btnAdd'];
                             <td><?php echo $row['CategoryDate']; ?></td>
                             <td><?php echo $row['CategoryName']; ?></td>
                             <td><?php echo $cateOrder; ?></td>
-                            <td><a href="control_panel.php?ID=<?php echo$row['ID']; ?>"><button class="btn-custom"
+                            <td><a href="control_panel.php?ID=<?php echo $row['ID']; ?>"><button class="btn-custom"
                                         style="margin:0px;background-color:red;">Delete</button></a></td>
                         </tr>
                         <?php
