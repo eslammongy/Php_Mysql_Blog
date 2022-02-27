@@ -5,18 +5,6 @@ include 'include/DBConnection.php';
 $cateName = $_POST['category'];
 $addingCate = $_POST['btnAdd'];
 
-if (isset($addingCate)) {
-    if (empty($cateName)) {
-        echo "please fill this is field first";
-    } else if ($cateName > 100) {
-        echo "please enter name less than 100 latter";
-    } else {
-        $query = "INSERT INTO categories (CategoryName) VALUES ('$cateName')";
-        mysqli_query($dbConnect, $query);
-        echo "New Category Added Successfully";
-        # $dbConnect->close();
-    }
-}
 ?>
 <!-- start dashboard content -->
 <div class="content">
@@ -71,7 +59,21 @@ if (isset($addingCate)) {
             </div>
             <div class="col-md-10" id="main-area">
                 <div class="add-new-category">
-                    <form action="<?php $_SERVER['PHP_SELF'];?>" method="POST">
+                    <?php
+                    if (isset($addingCate)) {
+                        if (empty($cateName)) {
+                            echo "<div class='alert alert-danger'style='color:black;font-weight:800;text-align:center;'>" . "please fill this is field first" . "</div>";
+                        } else if ($cateName > 100) {
+                            echo "<div class='alert alert-danger'style='color:black;font-weight:800;text-align:center;'>" . "please enter name less than 100 latter" . "</div>";
+                        } else {
+                            $query = "INSERT INTO categories (CategoryName) VALUES ('$cateName')";
+                            mysqli_query($dbConnect, $query);
+                            echo "<div class='alert alert-success'style='color:black;font-weight:800;text-align:center;'>" . "New Category Added Successfully" . "</div>";
+                        }
+                    }
+
+                    ?>
+                    <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
                         <div class="form-group">
                             <label for="category">New Category</label>
                             <input type="text" name="category" class="form-control">
@@ -89,21 +91,21 @@ if (isset($addingCate)) {
                             <th>Category ID</th>
                         </tr>
                         <?php
-$cateOrder = 0;
-$query = "SELECT * FROM categories ORDER BY CategoryName DESC";
-$result = mysqli_query($dbConnect, $query);
-while ($row = mysqli_fetch_assoc($result)) {
-    $cateOrder++;
-    ?>
+                        $cateOrder = 0;
+                        $query = "SELECT * FROM categories ORDER BY CategoryDate DESC";
+                        $result = mysqli_query($dbConnect, $query);
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $cateOrder++;
+                        ?>
                         <tr>
                             <td><?php echo $row['CategoryDate']; ?></td>
                             <td><?php echo $row['CategoryName']; ?></td>
                             <td><?php echo $cateOrder; ?></td>
                         </tr>
                         <?php
-}
+                        }
 
-?>
+                        ?>
 
                     </table>
                 </div>

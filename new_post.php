@@ -12,24 +12,6 @@ $addPost = $_POST['btnAdd'];
 $imageName = $_FILES['PostImage']['name'];
 $imageTmp = $_FILES['PostImage']['tmp_name'];
 
-if (isset($addPost)) {
-    if (empty($postTitle) || empty($postContent)) {
-        echo "please don't forget type the post title and content";
-    } else if ($postContent > 1000) {
-        echo "big content !!";
-    } else {
-        $postImage = rand(0, 1000) . "_" . $imageName;
-        move_uploaded_file($imageTmp, "uploadImage\postImage\\" . $postImage);
-        $query = "INSERT INTO posts(PostTitle,PostContent,PostImage,PostTag,PostAuther)
-        VALUES('$postTitle','$postContent','$postImage','$postTag','$postAuther')";
-       $result =  mysqli_query($dbConnect, $query);
-       if(isset($result)){
-           echo "Sharing Post Successfully";
-       }else{
-           echo "Error Occurred When Uploading Post";
-       }
-    }
-}
 
 ?>
 
@@ -86,6 +68,28 @@ if (isset($addPost)) {
             </div>
             <div class="col-md-10" id="main-area">
                 <div class="add-new-category">
+                    <?php
+
+                    if (isset($addPost)) {
+                        if (empty($postTitle) || empty($postContent)) {
+                            echo "<div class='alert alert-danger'style='color:black;font-weight:800;text-align:center;'>" . "please don't forget type the post title and content" . "</div>";
+                        } else if ($postContent > 1000) {
+                            echo "<div class='alert alert-danger'style='color:black;font-weight:800;text-align:center;'>" . "big content !!" . "</div>";
+                        } else {
+                            $postImage = rand(0, 1000) . "_" . $imageName;
+                            move_uploaded_file($imageTmp, "uploadImage\postImage\\" . $postImage);
+                            $query = "INSERT INTO posts(PostTitle,PostContent,PostImage,PostTag,PostAuther)
+        VALUES('$postTitle','$postContent','$postImage','$postTag','$postAuther')";
+                            $result =  mysqli_query($dbConnect, $query);
+                            if (isset($result)) {
+                                echo "<div class='alert alert-success'style='color:black;font-weight:800;text-align:center;'>" . "Sharing Article Successfully" . "</div>";
+                            } else {
+                                echo "<div class='alert alert-danger'style='color:black;font-weight:800;text-align:center;'>" . "Error Occurred When Uploading Article" . "</div>";
+                            }
+                        }
+                    }
+
+                    ?>
                     <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="PostTitle">Title</label>
