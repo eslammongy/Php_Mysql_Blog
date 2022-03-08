@@ -46,7 +46,7 @@ $tagID = $_GET['ID'];
                     </ul>
                     <!-- collapse -->
                     <li>
-                        <a href="index.php">
+                        <a href="index.php" target="_blank">
                             <span><i class="fa-solid fa-tv"></i></span>
                             <span>Website</span>
                         </a>
