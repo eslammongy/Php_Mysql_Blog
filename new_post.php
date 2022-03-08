@@ -16,19 +16,19 @@ $imageTmp = $_FILES['PostImage']['tmp_name'];
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2" id="right-area">
-                <h3>Control Panel</h3>
+                <h3>لوحة التحكم</h3>
                 <ul>
                     <li>
                         <a href="control_panel.php">
                             <span> <i class="fa-solid fa-tags"></i></span>
-                            <span>Category</span>
+                            <span>الفئات</span>
                         </a>
                     </li>
                     <li data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <a href="#">
                             <span><i class="fa-regular fa-newspaper"></i></i></span>
-                            <span>Articles</span>
+                            <span>المقالات</span>
                         </a>
                     </li>
                     <!-- collapse -->
@@ -36,14 +36,14 @@ $imageTmp = $_FILES['PostImage']['tmp_name'];
                         <li>
                             <a href="new_post.php">
                                 <span><i class="fa-solid fa-pen-to-square"></i></span>
-                                <span>New</span>
+                                <span>اضافة</span>
                             </a>
                         </li>
                         <li>
                             <a href="">
                                 <a href="posts_list.php">
                                     <span><i class="fa-solid fa-earth-americas"></i></span>
-                                    <span>All</span>
+                                    <span>كل المقالات</span>
                                 </a>
                         </li>
                     </ul>
@@ -51,13 +51,13 @@ $imageTmp = $_FILES['PostImage']['tmp_name'];
                     <li>
                         <a href="index.php">
                             <span><i class="fa-solid fa-tv"></i></span>
-                            <span>Website</span>
+                            <span>عرض الموقع</span>
                         </a>
                     </li>
                     <li>
                         <a href="">
                             <span><i class="fa-solid fa-right-from-bracket"></i></span>
-                            <span>Sign Out</span>
+                            <span>تسجيل خروج</span>
                         </a>
                     </li>
                 </ul>
@@ -86,11 +86,11 @@ $imageTmp = $_FILES['PostImage']['tmp_name'];
                     ?>
                     <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="PostTitle">Title</label>
+                            <label for="PostTitle">العنوان</label>
                             <input type="text" name="PostTitle" class="form-control" style="background-color: white;">
                         </div>
                         <div class="form-group">
-                            <label for="PostTag">Tag</label>
+                            <label for="PostTag">الفئة</label>
                             <select name="PostTag" id="PostTag" class="form-control">
                                 <?php
                                 $query = "SELECT * FROM categories";
@@ -105,17 +105,17 @@ $imageTmp = $_FILES['PostImage']['tmp_name'];
                         </div>
                         <div class="form-group">
                             <label for="PostImage">
-                                Post Image
+                                اضافة صورة
                             </label>
                             <input type="file" name="PostImage" id="post_image" class="form-control"
                                 style="background-color: white;">
                         </div>
                         <div class="form-group">
-                            <label for="PostContent">Content</label>
+                            <label for="PostContent">المحتوي</label>
                             <textarea cols="30" rows="10" name="PostContent" class="form-control">
                                 </textarea>
                         </div>
-                        <button class="btn-custom" name="btnAdd">Share</button>
+                        <button class="btn-custom" name="btnAdd">نشر</button>
                     </form>
                 </div>
             </div>

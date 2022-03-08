@@ -13,12 +13,12 @@ $tagID = $_GET['ID'];
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2" id="right-area">
-                <h3>Control Panel</h3>
+                <h3>لوحة التحكم</h3>
                 <ul>
                     <li>
                         <a href="">
                             <span> <i class="fa-solid fa-tags"></i></span>
-                            <span>Category</span>
+                            <span>الفئات</span>
                         </a>
                     </li>
 
@@ -26,7 +26,7 @@ $tagID = $_GET['ID'];
                         aria-expanded="false" aria-label="Toggle navigation">
                         <a href="#">
                             <span><i class="fa-regular fa-newspaper"></i></i></span>
-                            <span>Articles</span>
+                            <span>المقالات</span>
                         </a>
                     </li>
                     <!-- collapse -->
@@ -34,13 +34,13 @@ $tagID = $_GET['ID'];
                         <li>
                             <a href="new_post.php">
                                 <span><i class="fa-solid fa-pen-to-square"></i></span>
-                                <span>New</span>
+                                <span>اضافة</span>
                             </a>
                         </li>
                         <li>
                             <a href="posts_list.php">
                                 <span><i class="fa-solid fa-earth-americas"></i></span>
-                                <span>All</span>
+                                <span>كل المقالات</span>
                             </a>
                         </li>
                     </ul>
@@ -48,13 +48,13 @@ $tagID = $_GET['ID'];
                     <li>
                         <a href="index.php" target="_blank">
                             <span><i class="fa-solid fa-tv"></i></span>
-                            <span>Website</span>
+                            <span>عرض الموقع</span>
                         </a>
                     </li>
                     <li>
                         <a href="">
                             <span><i class="fa-solid fa-right-from-bracket"></i></span>
-                            <span>Sign Out</span>
+                            <span>تسجيل خروج</span>
                         </a>
                     </li>
                 </ul>
@@ -102,10 +102,10 @@ $tagID = $_GET['ID'];
                     ?>
                     <table class="table table-bordered" style="color: white;">
                         <tr style="background-color: #696969;">
-                            <th>Inserting Date</th>
-                            <th>Category Name</th>
-                            <th>Category ID</th>
-                            <th>Delete Category</th>
+                            <th>تاريخ النشر</th>
+                            <th>اسم الفئة</th>
+                            <th>رقم الئة</th>
+                            <th>حذف الفئة</th>
                         </tr>
                         <?php
                         $cateOrder = 0;

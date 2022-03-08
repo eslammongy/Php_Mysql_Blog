@@ -50,7 +50,7 @@ include 'include/DBConnection.php';
             <div class="col-md-3">
                 <!-- start category section -->
                 <div class="categories">
-                    <h3>Categories</h3>
+                    <h3>الفئات</h3>
                     <ul>
                         <li>
                             <a href="">
@@ -85,7 +85,7 @@ include 'include/DBConnection.php';
                 <!--end category section -->
                 <!-- start latest posts -->
                 <div class="last-post">
-                    <h3>Latest Posts</h3>
+                    <h3>أحدث المقالات</h3>
                     <ul>
                         <li>
                             <a href="">
