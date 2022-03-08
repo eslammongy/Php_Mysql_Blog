@@ -63,10 +63,10 @@ include 'include/DBConnection.php';
                         while($row = mysqli_fetch_assoc($result)){
                             ?>
                         <li>
-                            <a href="">
+                            <a href="category.php?CategoryName=<?php echo $row['CategoryName'] ?>">
 
-                                <span><?php echo $row['CategoryName'] ?></span>
-                                <span> <i class="fa-solid fa-tags"></i></span>
+                                <span><?php echo $row['CategoryName'] ?> <i class="fa-solid fa-tags"></i></span>
+                                <span> </span>
                             </a>
                         </li>
                         <?php
@@ -82,13 +82,13 @@ include 'include/DBConnection.php';
                     <ul>
                         <?php 
 
-                  $query = "SELECT * FROM posts ORDER BY PostDate DESC";
+                  $query = "SELECT * FROM posts ORDER BY PostDate DESC LIMIT 5";
                   $result = mysqli_query($dbConnect, $query);
                   while($row = mysqli_fetch_assoc($result)){
                       ?>
 
                         <li>
-                            <a href="">
+                            <a href="post_info.php?PostID=<?php echo $row['PostID'] ?>">
                                 <span>
                                     <img src="uploadImage/postImage/<?php echo $row['PostImage']; ?>" alt="images">
                                 </span>

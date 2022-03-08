@@ -161,7 +161,9 @@
         
         .last-post ul li {
             margin-bottom: 10px;
+            display: block;
             border-radius: 5px;
+            background-color: #4d4d4d;
             padding: 5px;
             transition: 0.5s ease;
         }
@@ -174,7 +176,11 @@
             width: 65px;
             height: 65px;
             float: left;
-            margin-right: 5px;
+            margin-right: 10px;
+        }
+        
+        .last-post ul li span p {
+            color: white;
         }
         /* end last post */
         

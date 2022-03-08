@@ -8,43 +8,50 @@ include 'include/DBConnection.php';
         <div class="row">
             <div class="col-md-9">
                 <?php
-                $id = $_GET['PostID'];
-                $query = "SELECT * FROM posts WHERE PostID='$id'";
+                $categoryName = $_GET['CategoryName'];
+                $query = "SELECT * FROM posts WHERE PostTag='$categoryName'";
                 $result = mysqli_query($dbConnect, $query);
-                $post = mysqli_fetch_assoc($result);
-               ?>
+                while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
                 <div class="post">
                     <div class="post-image">
-                        <img src="uploadImage/postImage/<?php echo$post['PostImage'] ?>" alt="blog-image">
+                        <img src="uploadImage/postImage/<?php echo$row['PostImage'] ?>" alt="blog-image">
                     </div>
-                    <a href="post_info.php?PostID=<?php echo $post['PostID'] ?>">
-                        <div class="post-title"><strong><?php echo $post['PostTitle'] ?></strong></div>
+                    <a href="post_info.php?PostID=<?php echo $row['PostID'] ?>">
+                        <div class="post-title"><strong><?php echo $row['PostTitle'] ?></strong></div>
                     </a>
                     <div class="post-details">
                         <p class="postContent"><?php
-                        echo $post['PostContent'];
+                        if(strlen($row['PostContent']) > 150){
+                            $row['PostContent'] = substr($row['PostContent'], 0 , 400). "...";
+                        }
+                        echo $row['PostContent'];
                         ?>
                         </p>
                         <p class="post-info">
                             <span>
-                                <span><i class="fa-solid fa-user"></i> <?php echo $post['PostAuther'] ?></span>
+                                <span><i class="fa-solid fa-user"></i> <?php echo $row['PostAuther'] ?></span>
 
                             </span>
                             <span>
-                                <span><i class="fa-solid fa-calendar"></i> <?php echo $post['PostDate'] ?></span>
+                                <span><i class="fa-solid fa-calendar"></i> <?php echo $row['PostDate'] ?></span>
 
                             </span>
                             <span>
 
-                                <span><i class="fa-solid fa-tags"></i> <?php echo $post['PostTag'] ?></span>
+                                <span><i class="fa-solid fa-tags"></i> <?php echo $row['PostTag'] ?></span>
 
                             </span>
                         </p>
+                        <a href="post_info.php?PostID=<?php echo $row['PostID'] ?>">
+                            <button class="btn btn-custom">قرأة المزيد</button>
+                        </a>
 
                     </div>
                 </div>
-
-
+                <?php
+      } 
+    ?>
             </div>
             <div class="col-md-3">
                 <!-- start category section -->
@@ -57,7 +64,7 @@ include 'include/DBConnection.php';
                         while($row = mysqli_fetch_assoc($result)){
                             ?>
                         <li>
-                            <a href="category.php?CategoryName=<?php echo $row['CategoryName'] ?>">
+                            <a href="category.php?CategoryName=<?php echo $row['CategoryName']; ?>">
 
                                 <span><?php echo $row['CategoryName'] ?></span>
                                 <span> <i class="fa-solid fa-tags"></i></span>
