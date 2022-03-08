@@ -20,102 +20,105 @@ include 'include/DBConnection.php';
                     <div class="post-details">
                         <p class="postContent"><?php
                         if(strlen($row['PostContent']) > 150){
-                            $row['PostContent'] = substr($row['PostContent'], 0 , 300)."...";
+                            $row['PostContent'] = substr($row['PostContent'], 0 , 400). "...";
                         }
                         echo $row['PostContent'];
-                        
-                        ?></p>
+                        ?>
+                        </p>
                         <p class="post-info">
                             <span>
-                                <i class="fa-solid fa-user"></i>
-                                <?php echo $row['PostAuther'] ?>
+                                <span><i class="fa-solid fa-user"></i> <?php echo $row['PostAuther'] ?></span>
+
                             </span>
                             <span>
-                                <i class="fa-solid fa-calendar"></i>
-                                <?php echo $row['PostDate'] ?>
+                                <span><i class="fa-solid fa-calendar"></i> <?php echo $row['PostDate'] ?></span>
+
                             </span>
                             <span>
-                                <i class="fa-solid fa-tags"></i>
-                                <?php echo $row['PostTag'] ?>
+
+                                <span><i class="fa-solid fa-tags"></i> <?php echo $row['PostTag'] ?></span>
+
                             </span>
                         </p>
-                        <button class="btn btn-custom">Read More</button>
+                        <button class="btn btn-custom">قرأة المزيد</button>
                     </div>
                 </div>
                 <?php
       } 
     ?>
-                <div class="col-md-3">
-                    <!-- start category section -->
-                    <div class="categories">
-                        <h3>Categories</h3>
-                        <ul>
-                            <li>
-                                <a href="">
-
-                                    <span>Android Development</span>
-                                    <span> <i class="fa-solid fa-tags"></i></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-
-                                    <span>Flutter Development</span>
-                                    <span> <i class="fa-solid fa-tags"></i></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-
-                                    <span>FrontEnd Development</span>
-                                    <span> <i class="fa-solid fa-tags"></i></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-
-                                    <span>BackEnd Development</span>
-                                    <span> <i class="fa-solid fa-tags"></i></span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!--end category section -->
-                    <!-- start latest posts -->
-                    <div class="last-post">
-                        <h3>Latest Posts</h3>
-                        <ul>
-                            <li>
-                                <a href="">
-                                    <span>
-                                        <img src="images/blog-4.jpg" alt="images">
-                                    </span>
-                                    <p>Welcome to our blog website, i will you are happy here.</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <span>
-                                        <img src="images/blog-4.jpg" alt="images">
-                                    </span>
-                                    <p>Welcome to our blog website, i will you are happy here.</p>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <span>
-                                        <img src="images/blog-4.jpg" alt="images">
-                                    </span>
-                                    <p>Welcome to our blog website, i will you are happy here.</p>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </div>
-                    <!-- end latest posts -->
-                </div>
             </div>
+            <div class="col-md-3">
+                <!-- start category section -->
+                <div class="categories">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li>
+                            <a href="">
+
+                                <span>Android Development</span>
+                                <span> <i class="fa-solid fa-tags"></i></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+
+                                <span>Flutter Development</span>
+                                <span> <i class="fa-solid fa-tags"></i></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+
+                                <span>FrontEnd Development</span>
+                                <span> <i class="fa-solid fa-tags"></i></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+
+                                <span>BackEnd Development</span>
+                                <span> <i class="fa-solid fa-tags"></i></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!--end category section -->
+                <!-- start latest posts -->
+                <div class="last-post">
+                    <h3>Latest Posts</h3>
+                    <ul>
+                        <li>
+                            <a href="">
+                                <span>
+                                    <img src="images/blog-4.jpg" alt="images">
+                                </span>
+                                <p>Welcome to our blog website, i will you are happy here.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span>
+                                    <img src="images/blog-4.jpg" alt="images">
+                                </span>
+                                <p>Welcome to our blog website, i will you are happy here.</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span>
+                                    <img src="images/blog-4.jpg" alt="images">
+                                </span>
+                                <p>Welcome to our blog website, i will you are happy here.</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <!-- end latest posts -->
+            </div>
+
         </div>
     </div>
-    <!--end content-->
-    <?php include('public/footer.php'); ?>
+</div>
+<!--end content-->
+<?php include('public/footer.php'); ?>

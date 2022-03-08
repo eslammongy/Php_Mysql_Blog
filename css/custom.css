@@ -78,17 +78,16 @@
         }
         
         .post .post-details .post-info span {
-            margin-right: 10px;
-            font-size: smaller;
-            padding: 15px;
-            color: #a7a7a7;
+            margin-right: 12px;
+            font-size: 15px;
+            color: #5f5f5f;
             font-family: Arial, Helvetica, sans-serif;
         }
         
         .post .post-details .post-info span i {
-            margin-left: 8px;
-            font-size: small;
-            font-weight: 500;
+            padding: 0px;
+            font-size: medium;
+            font-weight: 600;
         }
         /* end content */
         /* start side bar section */
