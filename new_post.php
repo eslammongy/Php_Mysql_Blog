@@ -122,7 +122,8 @@ $imageTmp = $_FILES['PostImage']['tmp_name'];
                         </div>
                         <div class="form-group">
                             <label for="PostContent">Content</label>
-                            <textarea cols="30" rows="10" name="PostContent" class="form-control">
+                            <textarea cols="30" rows="10" name="PostContent" class="form-control"
+                                style="text-align: right;">
 
                                 </textarea>
                         </div>
