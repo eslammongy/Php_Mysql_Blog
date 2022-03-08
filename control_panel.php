@@ -78,10 +78,10 @@ $tagID = $_GET['ID'];
                     ?>
                     <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
                         <div class="form-group">
-                            <label for="categoryName">New Category</label>
+                            <label for="categoryName">اسم الفئة</label>
                             <input type="text" name="categoryName" class="form-control">
                         </div>
-                        <button name="btnAddTag" class="btn-custom">Add</button>
+                        <button name="btnAddTag" class="btn-custom">اضافة</button>
                     </form>
                 </div>
 
@@ -104,7 +104,7 @@ $tagID = $_GET['ID'];
                         <tr style="background-color: #696969;">
                             <th>تاريخ النشر</th>
                             <th>اسم الفئة</th>
-                            <th>رقم الئة</th>
+                            <th>رقم الفئة</th>
                             <th>حذف الفئة</th>
                         </tr>
                         <?php
@@ -119,7 +119,7 @@ $tagID = $_GET['ID'];
                             <td><?php echo $row['CategoryName']; ?></td>
                             <td><?php echo $cateOrder; ?></td>
                             <td><a href="control_panel.php?ID=<?php echo $row['ID']; ?>"><button class="btn-custom"
-                                        style="margin:0px;background-color:red;">Delete</button></a></td>
+                                        style="margin:0px;background-color:red;">حذف</button></a></td>
                         </tr>
                         <?php
                         }

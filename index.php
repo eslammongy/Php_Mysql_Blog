@@ -52,34 +52,22 @@ include 'include/DBConnection.php';
                 <div class="categories">
                     <h3>الفئات</h3>
                     <ul>
+                        <?php 
+                        $query = "SELECT * FROM categories ORDER BY CategoryDate DESC";
+                        $result = mysqli_query($dbConnect, $query);
+                        while($row = mysqli_fetch_assoc($result)){
+                            ?>
                         <li>
                             <a href="">
 
-                                <span>Android Development</span>
+                                <span><?php echo $row['CategoryName'] ?></span>
                                 <span> <i class="fa-solid fa-tags"></i></span>
                             </a>
                         </li>
-                        <li>
-                            <a href="">
+                        <?php
+                        }
+              ?>
 
-                                <span>Flutter Development</span>
-                                <span> <i class="fa-solid fa-tags"></i></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-
-                                <span>FrontEnd Development</span>
-                                <span> <i class="fa-solid fa-tags"></i></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-
-                                <span>BackEnd Development</span>
-                                <span> <i class="fa-solid fa-tags"></i></span>
-                            </a>
-                        </li>
                     </ul>
                 </div>
                 <!--end category section -->
