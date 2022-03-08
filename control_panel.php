@@ -2,8 +2,9 @@
 include 'include/header.php';
 include 'include/DBConnection.php';
 
-$cateName = $_POST['category'];
-$addingCate = $_POST['btnAdd'];
+error_reporting(E_ERROR | E_PARSE);
+$tagName = $_POST['categoryName'];
+$addNewTag = $_POST['btnAddTag'];
 $tagID = $_GET['ID'];
 
 ?>
@@ -59,15 +60,16 @@ $tagID = $_GET['ID'];
                 </ul>
             </div>
             <div class="col-md-10" id="main-area">
+
                 <div class="add-new-category">
                     <?php
-                    if (isset($addingCate)) {
-                        if (empty($cateName)) {
+                    if (isset($addNewTag)) {
+                        if (empty($tagName)) {
                             echo "<div class='alert alert-danger'style='color:black;font-weight:800;text-align:center;'>" . "please fill this is field first" . "</div>";
-                        } else if ($cateName > 100) {
+                        } else if ($tagName > 100) {
                             echo "<div class='alert alert-danger'style='color:black;font-weight:800;text-align:center;'>" . "please enter name less than 100 latter" . "</div>";
                         } else {
-                            $query = "INSERT INTO categories (CategoryName) VALUES ('$cateName')";
+                            $query = "INSERT INTO categories (CategoryName) VALUES ('$tagName')";
                             mysqli_query($dbConnect, $query);
                             echo "<div class='alert alert-success'style='color:black;font-weight:800;text-align:center;'>" . "New Category Added Successfully" . "</div>";
                         }
@@ -76,10 +78,10 @@ $tagID = $_GET['ID'];
                     ?>
                     <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
                         <div class="form-group">
-                            <label for="category">New Category</label>
-                            <input type="text" name="category" class="form-control">
+                            <label for="categoryName">New Category</label>
+                            <input type="text" name="categoryName" class="form-control">
                         </div>
-                        <button name="btnAdd" class="btn-custom">Add</button>
+                        <button name="btnAddTag" class="btn-custom">Add</button>
                     </form>
                 </div>
 

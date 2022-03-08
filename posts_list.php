@@ -1,7 +1,7 @@
 <?php 
 include 'include/header.php';
 include 'include/DBConnection.php';
-
+error_reporting(E_ERROR | E_PARSE);
 $postID = $_GET['PostID'];
 ?>
 

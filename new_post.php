@@ -2,6 +2,7 @@
 include 'include/header.php';
 include 'include/DBConnection.php';
 
+error_reporting(E_ERROR | E_PARSE);
 $postTitle = $_POST['PostTitle'];
 $postTag = $_POST['PostTag'];
 $postContent = $_POST['PostContent'];
