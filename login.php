@@ -1,3 +1,16 @@
+<?php  
+session_start();
+include('include/DBConnection.php');
+error_reporting(E_ERROR | E_PARSE);
+
+######
+$adminName = $_POST['name'];
+$adminEmail = $_POST['email'];
+$adminPass = $_POST['password'];
+$login_btn = $_POST['btn-login'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,9 +21,6 @@
     <title>تسجيل الدخول</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,300;0,400;0,600;1,400;1,900&display=swap"
-        rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-rtl.css">
     <link rel="stylesheet" href="css/dashboard.css">
@@ -45,22 +55,44 @@
 <body>
 
     <div class="login-form">
-        <form action="">
+        <?php  
+        if(isset($login_btn)){
+            if(empty($adminName) || empty($adminEmail)){
+                       echo "<div class='alert alert-danger'style='color:black;font-weight:800;text-align:center;'>" . "الرجاء ادخال كلمة السر و البريد الالكتروني و الاسم الخاص بك" . "</div>";
+            }else{
+                $query = "SELECT * FROM admins WHERE adminEmail='$adminEmail' AND adminPass='$adminPass'";
+                $result = mysqli_query($dbConnect, $query);
+                $adminValue = mysqli_fetch_assoc($result);
+
+                if(in_array($adminEmail,$adminValue) && in_array($adminPass,$adminValue)){
+                      echo "<div class='alert alert-success'style='color:black;font-weight:800;text-align:center;'>" . "تم تسجيل الدخول بنجاح" . "</div>";
+                      $_SESSION['id'] = $adminValue['ID'];
+                      header('REFRESH:2;URL=control_panel.php');
+
+                }else{
+                          echo "<div class='alert alert-danger'style='color:black;font-weight:800;text-align:center;'>" . "البيانات المستخدمة غير متطابقة الرجاء ادخال البيانات الصحيحة" . "</div>";
+
+                }
+            }
+        }
+        
+        ?>
+        <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST">
             <h3>تسجيل الدخول</h3>
             <div class="form-group">
                 <label for="name">اسم المستخدم</label>
-                <input type="text" name="name" class="form-range" id="email">
+                <input type="text" name="name" class="form-control" id="name">
             </div>
             <div class="form-group">
                 <label for="email">البريد الالكتروني</label>
-                <input type="email" name="email" class="form-range" id="email">
+                <input type="email" name="email" class="form-control" id="email">
             </div>
 
             <div class="form-group">
                 <label for="password">كلمة السر</label>
-                <input type="password" name="password" class="form-range" id="password">
+                <input type="password" name="password" class="form-control" id="password">
             </div>
-            <button class="btn-custom">تسجيل الدخول</button>
+            <button class="btn-custom" name="btn-login">تسجيل الدخول</button>
         </form>
     </div>
 

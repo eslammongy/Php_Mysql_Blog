@@ -1,4 +1,5 @@
 <?php
+session_start();
 include 'include/header.php';
 include 'include/DBConnection.php';
 
@@ -6,6 +7,12 @@ error_reporting(E_ERROR | E_PARSE);
 $tagName = $_POST['categoryName'];
 $addNewTag = $_POST['btnAddTag'];
 $tagID = $_GET['ID'];
+
+if(!isset($_SESSION['id'])){
+  echo "<div class='alert alert-success'style='color:black;font-weight:800;text-align:center;'>" . "غير مسموح لك بالاطلاع علي هذه الصفحة" . "</div>";             
+  header('REFRESH:2;URL=login.php');
+}
+else{
 
 ?>
 <!-- start dashboard content -->
@@ -133,7 +140,10 @@ $tagID = $_GET['ID'];
     </div>
 </div>
 <!-- end dashboard content -->
+<?php 
 
+}
+?>
 
 <?php
 include 'include/footer.php';
