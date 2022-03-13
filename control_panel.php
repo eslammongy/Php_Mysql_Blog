@@ -9,7 +9,7 @@ $addNewTag = $_POST['btnAddTag'];
 $tagID = $_GET['ID'];
 
 if(!isset($_SESSION['id'])){
-  echo "<div class='alert alert-success'style='color:black;font-weight:800;text-align:center;'>" . "غير مسموح لك بالاطلاع علي هذه الصفحة" . "</div>";             
+  echo "<div class='alert alert-success'style='color:white;font-weight:800;text-align:center;font-size:xx-large; background-color: red;'>" . "غير مسموح لك بالاطلاع علي هذه الصفحة" . "</div>";             
   header('REFRESH:2;URL=login.php');
 }
 else{

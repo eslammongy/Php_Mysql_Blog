@@ -40,6 +40,7 @@ $login_btn = $_POST['btn-login'];
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         margin-bottom: 50px;
         text-align: center;
+
     }
 
     .login-form label {
