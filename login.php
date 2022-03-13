@@ -34,13 +34,22 @@ $login_btn = $_POST['btn-login'];
 
     .login-form h3 {
         color: white;
+        font-size: xx-large;
+        letter-spacing: 1.2px;
+        font-weight: 800;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
         margin-bottom: 50px;
         text-align: center;
+    }
+
+    .login-form label {
+        color: white;
     }
 
     .login-form input {
         font-size: medium;
         color: black;
+        margin: 6px 0px 15px;
         padding: 10px;
     }
 

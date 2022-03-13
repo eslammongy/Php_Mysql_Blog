@@ -59,7 +59,7 @@ else{
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="login.php">
                             <span><i class="fa-solid fa-right-from-bracket"></i></span>
                             <span>تسجيل خروج</span>
                         </a>
