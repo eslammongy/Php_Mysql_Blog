@@ -79,36 +79,33 @@ include 'include/DBConnection.php';
                 <!-- start latest posts -->
                 <div class="last-post">
                     <h3>أحدث المقالات</h3>
-
                     <?php 
-
                   $query = "SELECT * FROM posts ORDER BY PostDate DESC LIMIT 5";
                   $result = mysqli_query($dbConnect, $query);
                   while($row = mysqli_fetch_assoc($result)){
                       ?>
-
-                    <div class="row">
-                        <div class="column">
+                    <div class="grid-row">
+                        <div class="box">
                             <a href="post_info.php?PostID=<?php echo $row['PostID'] ?>">
                                 <span>
                                     <img src="uploadImage/postImage/<?php echo $row['PostImage']; ?>" alt="images">
                                 </span>
                             </a>
-
                         </div>
-                        <div class="column">
+                        <div class="box">
                             <a href="post_info.php?PostID=<?php echo $row['PostID'] ?>">
 
                                 <p><?php echo $row['PostTitle']; ?></p>
 
                             </a>
                         </div>
+
                     </div>
+
                     <?php
                   }
                     
-          ?>
-
+             ?>
 
                 </div>
                 <!-- end latest posts -->
