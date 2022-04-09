@@ -8,7 +8,7 @@ include 'include/DBConnection.php';
         <div class="row">
             <div class="col-md-9">
                 <?php
-                $query = "SELECT * FROM posts ORDER BY PostID";
+                $query = "SELECT * FROM posts ORDER BY PostDate DESC";
                 $result = mysqli_query($dbConnect, $query);
                 while ($row = mysqli_fetch_assoc($result)) {
                     ?>
@@ -28,10 +28,10 @@ include 'include/DBConnection.php';
                         ?>
                         </p>
                         <p class="post-info">
-                            <span>
+                            <!--    <span>
                                 <span><i class="fa-solid fa-user"></i> <?php echo $row['PostAuther'] ?></span>
 
-                            </span>
+                            </span> -->
                             <span>
                                 <span><i class="fa-solid fa-calendar"></i> <?php echo $row['PostDate'] ?></span>
 
@@ -80,7 +80,7 @@ include 'include/DBConnection.php';
                 <div class="last-post">
                     <h3>أحدث المقالات</h3>
                     <?php 
-                  $query = "SELECT * FROM posts ORDER BY PostDate DESC LIMIT 5";
+                  $query = "SELECT * FROM posts ORDER BY PostID DESC";
                   $result = mysqli_query($dbConnect, $query);
                   while($row = mysqli_fetch_assoc($result)){
                       ?>
@@ -95,7 +95,10 @@ include 'include/DBConnection.php';
                         <div class="box">
                             <a href="post_info.php?PostID=<?php echo $row['PostID'] ?>">
 
-                                <p><?php echo $row['PostTitle']; ?></p>
+                                <p><?php if(strlen($row['PostTitle']) > 20){
+                                $row['PostTitle'] = substr($row['PostTitle'], 0 , 30). "...";
+                                }
+                                echo $row['PostTitle']; ?></p>
 
                             </a>
                         </div>

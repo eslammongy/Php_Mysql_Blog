@@ -1,16 +1,8 @@
 <?php
-$hostName = 'localhost';
-$userName = 'root';
-$password = "";
-$dbName = 'blogs_db';
 
-$dbConnect= mysqli_connect($hostName, $userName, $password, $dbName);
 
-/* if(isset($dbConnect)){
-    echo "Connection Success";
-}else{
-      echo "Connection Fail";
-}
- */
+$dbConnect= mysqli_connect('localhost', 'root', '') or die('connection with database fail');
+mysqli_select_db($dbConnect, 'blogs_db')
+
 
 ?>

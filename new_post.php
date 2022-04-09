@@ -1,16 +1,20 @@
 <?php
 include 'include/header.php';
 include 'include/DBConnection.php';
+
 error_reporting(E_ERROR | E_PARSE);
 $postTitle = $_POST['PostTitle'];
 $postTag = $_POST['PostTag'];
 $postContent = $_POST['PostContent'];
 $postDate = $_POST['PostDate'];
-$postAuther = "اسلام منجي";
+$postAuther = "Eslam Mongy";
 $addPost = $_POST['btnAdd'];
+
 $imageName = $_FILES['PostImage']['name'];
 $imageTmp = $_FILES['PostImage']['tmp_name'];
+
 ?>
+
 <!-- start dashboard content -->
 <div class="content">
     <div class="container-fluid">
@@ -19,11 +23,12 @@ $imageTmp = $_FILES['PostImage']['tmp_name'];
                 <h3>لوحة التحكم</h3>
                 <ul>
                     <li>
-                        <a href="control_panel.php">
+                        <a href="">
                             <span> <i class="fa-solid fa-tags"></i></span>
                             <span>الفئات</span>
                         </a>
                     </li>
+
                     <li data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <a href="#">
@@ -40,22 +45,21 @@ $imageTmp = $_FILES['PostImage']['tmp_name'];
                             </a>
                         </li>
                         <li>
-                            <a href="">
-                                <a href="posts_list.php">
-                                    <span><i class="fa-solid fa-earth-americas"></i></span>
-                                    <span>كل المقالات</span>
-                                </a>
+                            <a href="posts_list.php">
+                                <span><i class="fa-solid fa-earth-americas"></i></span>
+                                <span>كل المقالات</span>
+                            </a>
                         </li>
                     </ul>
                     <!-- collapse -->
                     <li>
-                        <a href="index.php">
+                        <a href="index.php" target="_blank">
                             <span><i class="fa-solid fa-tv"></i></span>
                             <span>عرض الموقع</span>
                         </a>
                     </li>
                     <li>
-                        <a href="">
+                        <a href="login.php">
                             <span><i class="fa-solid fa-right-from-bracket"></i></span>
                             <span>تسجيل خروج</span>
                         </a>
@@ -84,38 +88,42 @@ $imageTmp = $_FILES['PostImage']['tmp_name'];
                         }
                     }
                     ?>
-                    <form action="<?php $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
+                    <form action="<?php $_SERVER['PHP_SELF'];?>" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="PostTitle">العنوان</label>
+                            <label for="PostTitle">Title</label>
                             <input type="text" name="PostTitle" class="form-control" style="background-color: white;">
                         </div>
                         <div class="form-group">
-                            <label for="PostTag">الفئة</label>
+                            <label for="PostTag">Tag</label>
                             <select name="PostTag" id="PostTag" class="form-control">
                                 <?php
-                                $query = "SELECT * FROM categories";
-                                $result = mysqli_query($dbConnect, $query);
-                                while ($tag = mysqli_fetch_assoc($result)) {
-                                ?>
+
+$query = "SELECT * FROM categories";
+$result = mysqli_query($dbConnect, $query);
+
+while ($tag = mysqli_fetch_assoc($result)) {
+    ?>
                                 <option name="PostTag"> <?php echo $tag['CategoryName']; ?></option>
                                 <?php
-                                }
-                                ?>
+}
+?>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="PostImage">
-                                اضافة صورة
+                                Post Image
                             </label>
                             <input type="file" name="PostImage" id="post_image" class="form-control"
                                 style="background-color: white;">
+
                         </div>
                         <div class="form-group">
-                            <label for="PostContent">المحتوي</label>
+                            <label for="PostContent">Content</label>
                             <textarea cols="30" rows="10" name="PostContent" class="form-control">
+
                                 </textarea>
                         </div>
-                        <button class="btn-custom" name="btnAdd">نشر</button>
+                        <button class="btn-custom" name="btnAdd">Share</button>
                     </form>
                 </div>
             </div>
@@ -123,6 +131,7 @@ $imageTmp = $_FILES['PostImage']['tmp_name'];
     </div>
 </div>
 <!-- end dashboard content -->
+
 <?php
 include 'include/footer.php';
 ?>

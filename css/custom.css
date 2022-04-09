@@ -157,82 +157,37 @@
     .last-post .grid-row {
         display: grid;
         grid-template-columns: 1fr 2fr;
-        ;
         grid-gap: 10px;
         border-radius: 5px;
         background-color: #444;
         color: #444;
+        margin-bottom: 20px;
         transition: 0.5s ease;
     }
     
     .last-post .grid-row .box {
         color: #fff;
-        padding: 20px;
-        font-size: 150%;
+        padding: 15px;
     }
     
     .last-post .grid-row .box span img {
-        width: 60px;
-        height: 60px;
-        margin-right: 10px;
+        width: 70px;
+        height: 80%;
+        margin-right: 5px;
     }
     
     .last-post .grid-row .box p {
         color: white;
         margin-top: 20%;
         text-align: start;
-        font-size: large;
-        font-weight: bold;
-        float: left;
+        font-size: medium;
+        font-weight: 600;
+        float: right;
     }
     
     .last-post .grid-row:hover {
-        transform: scale(1.1, 1.1);
+        transform: scale(0.9, 0.9);
     }
-    /*  
-    
-        .last-post h3 {
-            border-bottom: 1px solid orangered;
-            padding: 10px;
-            border-radius: 5px;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            text-align: center;
-        }
-        
-        .last-post ul {
-            list-style: none;
-            text-align: end;
-            margin: 0%;
-            padding: 0%;
-        }
-        
-        .last-post ul li {
-            margin-bottom: 10px;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            border-radius: 5px;
-            background-color: #4d4d4d;
-            padding: 5px;
-            transition: 0.5s ease;
-        }
-        
-        .last-post ul li:hover {
-            transform: scale(1.1, 1.1);
-        }
-        
-        .last-post ul li span img {
-            width: 65px;
-            height: 65px;
-            float: left;
-            display: block;
-            margin-right: 10px;
-        }
-        
-        .last-post ul li span p {
-            color: white;
-        } */
-    /* end last post */
     
     footer {
         background-color: #3f3f3f;
