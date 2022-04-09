@@ -26,10 +26,10 @@ include 'include/DBConnection.php';
                         ?>
                         </p>
                         <p class="post-info">
-                            <span>
+                            <!--  <span>
                                 <span><i class="fa-solid fa-user"></i> <?php echo $post['PostAuther'] ?></span>
 
-                            </span>
+                            </span> -->
                             <span>
                                 <span><i class="fa-solid fa-calendar"></i> <?php echo $post['PostDate'] ?></span>
 
@@ -72,30 +72,39 @@ include 'include/DBConnection.php';
                 <!--end category section -->
                 <!-- start latest posts -->
                 <div class="last-post">
-                    <h3>أحدث المقالات</h3>
-                    <ul>
-                        <?php 
 
-                  $query = "SELECT * FROM posts ORDER BY PostDate DESC LIMIT 5";
+                    <h3>أحدث المقالات</h3>
+                    <?php 
+                  $query = "SELECT * FROM posts ORDER BY PostID DESC";
                   $result = mysqli_query($dbConnect, $query);
                   while($row = mysqli_fetch_assoc($result)){
                       ?>
-
-                        <li>
+                    <div class="grid-row">
+                        <div class="box">
                             <a href="post_info.php?PostID=<?php echo $row['PostID'] ?>">
                                 <span>
                                     <img src="uploadImage/postImage/<?php echo $row['PostImage']; ?>" alt="images">
                                 </span>
-                                <p><?php echo $row['PostTitle']; ?></p>
                             </a>
-                        </li>
+                        </div>
+                        <div class="box">
+                            <a href="post_info.php?PostID=<?php echo $row['PostID'] ?>">
 
-                        <?php
+                                <p><?php if(strlen($row['PostTitle']) > 20){
+                                $row['PostTitle'] = substr($row['PostTitle'], 0 , 30). "...";
+                                }
+                                echo $row['PostTitle']; ?></p>
+
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <?php
                   }
                     
-          ?>
+             ?>
 
-                    </ul>
                 </div>
                 <!-- end latest posts -->
             </div>
