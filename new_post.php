@@ -23,7 +23,7 @@ $imageTmp = $_FILES['PostImage']['tmp_name'];
                 <h3>لوحة التحكم</h3>
                 <ul>
                     <li>
-                        <a href="">
+                        <a href="control_panel.php">
                             <span> <i class="fa-solid fa-tags"></i></span>
                             <span>الفئات</span>
                         </a>
@@ -81,20 +81,20 @@ $imageTmp = $_FILES['PostImage']['tmp_name'];
         VALUES('$postTitle','$postContent','$postImage','$postTag','$postAuther')";
                             $result =  mysqli_query($dbConnect, $query);
                             if (isset($result)) {
-                                echo "<div class='alert alert-success'style='color:black;font-weight:800;text-align:center;'>" . "Sharing Article Successfully" . "</div>";
+                                echo "<div class='alert alert-success'style='color:black;font-weight:800;text-align:center;'>" . "تم نشر المقال بنجاح" . "</div>";
                             } else {
-                                echo "<div class='alert alert-danger'style='color:black;font-weight:800;text-align:center;'>" . "Error Occurred When Uploading Article" . "</div>";
+                                echo "<div class='alert alert-danger'style='color:black;font-weight:800;text-align:center;'>" . "حدث خطأ عند نشر المقال" . "</div>";
                             }
                         }
                     }
                     ?>
                     <form action="<?php $_SERVER['PHP_SELF'];?>" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="PostTitle">Title</label>
+                            <label for="PostTitle">العنوان</label>
                             <input type="text" name="PostTitle" class="form-control" style="background-color: white;">
                         </div>
                         <div class="form-group">
-                            <label for="PostTag">Tag</label>
+                            <label for="PostTag">الفئة</label>
                             <select name="PostTag" id="PostTag" class="form-control">
                                 <?php
 
@@ -111,19 +111,19 @@ while ($tag = mysqli_fetch_assoc($result)) {
                         </div>
                         <div class="form-group">
                             <label for="PostImage">
-                                Post Image
+                                الصورة
                             </label>
                             <input type="file" name="PostImage" id="post_image" class="form-control"
                                 style="background-color: white;">
 
                         </div>
                         <div class="form-group">
-                            <label for="PostContent">Content</label>
+                            <label for="PostContent">المحتوي</label>
                             <textarea cols="30" rows="10" name="PostContent" class="form-control">
 
                                 </textarea>
                         </div>
-                        <button class="btn-custom" name="btnAdd">Share</button>
+                        <button class="btn-custom" name="btnAdd">نشر</button>
                     </form>
                 </div>
             </div>

@@ -64,13 +64,18 @@ $postID = $_GET['PostID'];
                         $deleteRes = mysqli_query($dbConnect, $query);
 
                         if (isset($deleteRes)) {
-                            echo "<div class='alert alert-success'style='color:black;font-weight:800;text-align:center;'>" . "Delete Selected Article Successfully" . "</div>";
+                            echo "<div class='alert alert-success'style='color:black;font-weight:800;text-align:center;'>" . "تم حذف المقال بنجاح" . "</div>";
                         } else {
                             echo "<div class='alert alert-danger'style='color:black;font-weight:800;text-align:center;'>" . "Error Occurred when Deleting Selected Article" . "</div>";
                         }
                     }
 
                     ?>
+                <h1
+                    style="color: white;margin:50px 0px;font-size:xx-large;text-align:center;font-weight:800;letter-spacing: 2px;">
+                    كل
+                    المقالات
+                </h1>
                 <table class="table table-bordered" style="color: white;">
                     <tr style="background-color: #696969;">
                         <th>رقم المقال</th>

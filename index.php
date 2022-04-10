@@ -1,6 +1,8 @@
 <?php
 include('public/header.php');
 include 'include/DBConnection.php';
+error_reporting(E_ERROR | E_PARSE);
+
 ?>
 <!--start content-->
 <div class="content">
@@ -22,7 +24,7 @@ include 'include/DBConnection.php';
                     <div class="post-details">
                         <p class="postContent"><?php
                         if(strlen($row['PostContent']) > 150){
-                            $row['PostContent'] = substr($row['PostContent'], 0 , 400). "...";
+                            $row['PostContent'] = substr($row['PostContent'], 0 , 410). "...";
                         }
                         echo $row['PostContent'];
                         ?>

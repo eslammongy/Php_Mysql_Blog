@@ -78,7 +78,7 @@ else{
                         } else {
                             $query = "INSERT INTO categories (CategoryName) VALUES ('$tagName')";
                             mysqli_query($dbConnect, $query);
-                            echo "<div class='alert alert-success'style='color:black;font-weight:800;text-align:center;'>" . "New Category Added Successfully" . "</div>";
+                            echo "<div class='alert alert-success'style='color:black;font-weight:800;text-align:center;'>" . "تم اضافة فئة جديدة" . "</div>";
                         }
                     }
 
@@ -100,9 +100,9 @@ else{
                         $deleteRes = mysqli_query($dbConnect, $query);
 
                         if (isset($deleteRes)) {
-                            echo "<div class='alert alert-success'style='color:black;font-weight:800;text-align:center;'>" . "Delete Selected Tag Successfully" . "</div>";
+                            echo "<div class='alert alert-success'style='color:black;font-weight:800;text-align:center;'>" . "تم حذف الفئة بنجاح" . "</div>";
                         } else {
-                            echo "<div class='alert alert-danger'style='color:black;font-weight:800;text-align:center;'>" . "Error Occurred when Deleting Selected Tag" . "</div>";
+                            echo "<div class='alert alert-danger'style='color:black;font-weight:800;text-align:center;'>" . "حدث خطأ أثناء حذف الفئة" . "</div>";
                         }
                     }
 

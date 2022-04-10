@@ -72,7 +72,6 @@ include 'include/DBConnection.php';
                 <!--end category section -->
                 <!-- start latest posts -->
                 <div class="last-post">
-
                     <h3>أحدث المقالات</h3>
                     <?php 
                   $query = "SELECT * FROM posts ORDER BY PostID DESC";
